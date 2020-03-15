@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- ng-app informa que o documento é AngularJS, além de HTML -->
+<html lang="en" ng-app>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista de Compras</title>
+        <script src="ListaComprasController.js"></script>
+        <link rel="stylesheet" href="listaCompras.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+        <script src="https://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
+    </head>
+    <body>
+        <h1>Lista de Compras</h1>
+        <div ng-controller="ListaComprasController">
+            <div class="form">
+                <form>
+                    <input type="text" ng-model="item.produto" placeholder="Produto">
+                    <br />
+                    <input type="number" ng-model="item.quantidade" placeholder="Quantidade">
+                    <br />
+                    <button class="btn-add" ng-Click="adicionaItem()">Adicionar item</button>
+                </form>
+            </div>
+            
+            <div class="div-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="table">Produto</th>
+                            <th class="table">Quantidade</th>
+                            <th class="table">Comprado?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in itens">
+                            <td class="table"><strong class="table">{{ item.produto }}</strong></td>
+                            <td class="table">{{ item.quantidade }}</td>
+                            <td class="table">
+                                <input type="checkbox">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
